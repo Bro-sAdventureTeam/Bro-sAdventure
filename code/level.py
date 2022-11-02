@@ -19,20 +19,20 @@ class Level:
 
     def create_map(self):
         layouts = {
-            'entities': import_csv_layout('../draft/map/map_Entities.csv'),
-            'floor': import_csv_layout('../draft/map/map_Floor.csv'),
             'boundary': import_csv_layout('../draft/map/map_FloorBlocks.csv'),
-            'objects': import_csv_layout('../draft/map/map_Objects.csv')
+            'floor': import_csv_layout('../draft/map/map_Floor.csv'),
+            'objects': import_csv_layout('../draft/map/map_Objects.csv'),
+            'entities': import_csv_layout('../draft/map/map_Entities.csv')
         }
         for layout in layouts.values():
             for row_index, row in enumerate(layout):
                 for col_index, col in enumerate(row):
                     x = col_index * TILESIZE
                     y = row_index * TILESIZE
-                    if col == '3721':
-                        Player((x,y),[self.visible_sprites])
                     if col == '0':
                         Tile((x,y),[self.visible_sprites,self.obstacle_sprites])
+                    elif col == '3721':
+                        Player((x,y),[self.visible_sprites])
 
 
     def run(self):
