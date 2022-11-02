@@ -2,6 +2,7 @@ import pygame
 from settings import TILESIZE
 from support import import_csv_layout
 from player import Player
+from tile import Tile
 
 class Level:
     def __init__(self):
@@ -30,6 +31,8 @@ class Level:
                     y = row_index * TILESIZE
                     if col == '3721':
                         Player((x,y),[self.visible_sprites])
+                    if col == '0':
+                        Tile((x,y),[self.visible_sprites,self.obstacle_sprites])
 
 
     def run(self):
