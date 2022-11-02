@@ -1,0 +1,5 @@
+WIDTH = 1280  # screen ratio is 16:9
+HEIGHT = 720
+TILESIZE = 16
+MULTIPLIER = 4
+FPS = 60
