@@ -32,10 +32,10 @@ class Level:
                     if col == '0':
                         Tile((x,y),[self.visible_sprites,self.obstacle_sprites])
                     elif col == '3721':
-                        Player((x,y),[self.visible_sprites])
+                        self.player = Player((x,y),[self.visible_sprites])
 
 
     def run(self):
         self.visible_sprites.draw(self.display_surf)
-
+        self.visible_sprites.update()
         

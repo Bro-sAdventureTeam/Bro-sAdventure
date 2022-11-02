@@ -22,8 +22,8 @@
             "scale": 1.5,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": -62,
-                "y": -11.333333333333343
+                "x": 185.33333333333331,
+                "y": 171.33333333333331
             }
         }
     },
@@ -38,7 +38,8 @@
     "map.width": 95,
     "openFiles": [
         "tilemap.tmx",
-        "dungeon_tiles.tsx"
+        "dungeon_tiles.tsx",
+        "tilemap.tmx"
     ],
     "project": "untitled.tiled-project",
     "recentFiles": [
