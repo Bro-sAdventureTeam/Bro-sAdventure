@@ -15,15 +15,15 @@
             "scaleInDock": 5.5
         },
         "dungeon_tiles.tsx": {
-            "scaleInDock": 3,
+            "scaleInDock": 1.5,
             "scaleInEditor": 4
         },
         "tilemap.tmx": {
-            "scale": 1.5,
+            "scale": 2,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 185.33333333333331,
-                "y": 171.33333333333331
+                "x": 198,
+                "y": 151
             }
         }
     },
@@ -38,13 +38,12 @@
     "map.width": 95,
     "openFiles": [
         "tilemap.tmx",
-        "dungeon_tiles.tsx",
-        "tilemap.tmx"
+        "dungeon_tiles.tsx"
     ],
     "project": "untitled.tiled-project",
     "recentFiles": [
-        "tilemap.tmx",
-        "dungeon_tiles.tsx"
+        "dungeon_tiles.tsx",
+        "tilemap.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.margin": 0,

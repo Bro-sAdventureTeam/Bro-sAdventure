@@ -24,17 +24,20 @@ class Level:
             'objects': import_csv_layout('../map/map_Objects.csv'),
             'entities': import_csv_layout('../map/map_Entities.csv')
         }
-        for layout in layouts.values():
-            for row_index, row in enumerate(layout):
+        for layout_key, layout_value in layouts.items():
+            for row_index, row in enumerate(layout_value):
                 for col_index, col in enumerate(row):
                     x = col_index * TILESIZE
                     y = row_index * TILESIZE
-                    if col == '0':
-                        Tile((x,y),[self.visible_sprites,self.obstacle_sprites])
-                    elif col == '3721':
-                        self.player = Player((x,y),
-                                             [self.visible_sprites],
-                                             self.obstacle_sprites)
+                    if layout_key == 'boundary':
+                        if col == '0':
+                            Tile((x,y),[self.obstacle_sprites])
+
+                    elif layout_key == 'entities':
+                        if col == '3721':
+                            self.player = Player((x,y),
+                                                 [self.visible_sprites],
+                                                 self.obstacle_sprites)
 
     def run(self):
         self.visible_sprites.custom_draw(self.player)
@@ -51,11 +54,19 @@ class YSortCameraGroup(pygame.sprite.Group):
         self.half_height = self.display_surface.get_height() // 2
         self.offset = pygame.math.Vector2()
 
+        # creating the floor
+        self.floor_surf = pygame.image.load('../graphics/tilemap/ground_400.png').convert()
+        self.floor_rect = self.floor_surf.get_rect(topleft = (0,0))
+
     def custom_draw(self,player):
 
         # getting the offset
         self.offset.x = player.rect.centerx - self.half_width
         self.offset.y = player.rect.centery - self.half_height
+
+        # drawing the floor
+        floor_offset_pos = self.floor_rect.topleft - self.offset
+        self.display_surface.blit(self.floor_surf,floor_offset_pos)
 
         # drawing the sprites
         # for sprite in self.sprites():
