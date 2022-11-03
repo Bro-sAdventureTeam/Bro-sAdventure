@@ -32,7 +32,10 @@ class Level:
                     if col == '0':
                         Tile((x,y),[self.visible_sprites,self.obstacle_sprites])
                     elif col == '3721':
-                        self.player = Player((x,y),[self.visible_sprites])
+                        self.player = Player((x,y),
+                                             [self.visible_sprites],
+                                             self.obstacle_sprites)
+
 
 
     def run(self):
