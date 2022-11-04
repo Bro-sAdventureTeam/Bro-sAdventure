@@ -24,6 +24,14 @@ class Level:
             'objects': import_csv_layout('../map/map_Objects.csv'),
             'entities': import_csv_layout('../map/map_Entities.csv')
         }
+
+        objects = {
+            'box_big': pygame.image.load('../graphics/obstacle/01.png').convert_alpha(),
+            'box_small': pygame.image.load('../graphics/obstacle/02.png').convert_alpha(),
+            'barrel': pygame.image.load('../graphics/obstacle/03.png').convert_alpha(),
+            'torch': pygame.image.load('../graphics/obstacle/04.png').convert_alpha()
+        }
+
         for layout_key, layout_value in layouts.items():
             for row_index, row in enumerate(layout_value):
                 for col_index, col in enumerate(row):
@@ -32,6 +40,24 @@ class Level:
                     if layout_key == 'boundary':
                         if col == '0':
                             Tile((x,y),[self.obstacle_sprites])
+
+                    if layout_key == 'objects':
+                        if col == '2713':
+                            Tile((x,y),
+                                 [self.obstacle_sprites, self.visible_sprites],
+                                 objects['box_small'])
+                        elif col == '2432':
+                            Tile((x,y),
+                                 [self.obstacle_sprites,self.visible_sprites],
+                                 objects['box_big'])
+                        elif col == '2533':
+                            Tile((x,y),
+                                 [self.obstacle_sprites,self.visible_sprites],
+                                 objects['barrel'])
+                        elif col == '2992':
+                            Tile((x,y),
+                                 [self.obstacle_sprites,self.visible_sprites],
+                                 objects['torch'])
 
                     elif layout_key == 'entities':
                         if col == '3721':
@@ -55,7 +81,7 @@ class YSortCameraGroup(pygame.sprite.Group):
         self.offset = pygame.math.Vector2()
 
         # creating the floor
-        self.floor_surf = pygame.image.load('../graphics/tilemap/ground_400.png').convert()
+        self.floor_surf = pygame.image.load('../graphics/tilemap/ground.png').convert()
         self.floor_rect = self.floor_surf.get_rect(topleft = (0,0))
 
     def custom_draw(self,player):

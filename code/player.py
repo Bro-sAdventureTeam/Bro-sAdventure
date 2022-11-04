@@ -7,8 +7,8 @@ class Player(pygame.sprite.Sprite):
 
         # image
         self.image = pygame.image.load('../graphics/player/down/down_1.png').convert_alpha()
-        image_height = self.image.get_height()
         image_width = self.image.get_width()
+        image_height = self.image.get_height()
         self.image = pygame.transform.scale(self.image,
             (image_width * PLAYER_MULTIPLIER, image_height * PLAYER_MULTIPLIER))
         self.rect = self.image.get_rect(topleft=(pos))
