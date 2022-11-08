@@ -29,7 +29,6 @@ class Player(pygame.sprite.Sprite):
         self.obstacle_sprites = obstacle_sprites
 
         self.import_player_assets()
-        print(self.animations)
 
     def import_player_assets(self):
         path = '../graphics/player/'
@@ -100,6 +99,11 @@ class Player(pygame.sprite.Sprite):
                     if self.direction.x < 0:  # moving right
                         self.hitbox.left = sprite.hitbox.right
 
+    def get_status(self):
+        if self.direction.x == 0 and self.direction.y == 0:
+            if not 'idle' in self.status:
+                self.status += '_idle'
+
     def animate(self):
         animation = self.animations[self.status]
 
@@ -113,5 +117,6 @@ class Player(pygame.sprite.Sprite):
 
     def update(self):
         self.input()
+        self.get_status()
         self.animate()
         self.move()
