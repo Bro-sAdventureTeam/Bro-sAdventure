@@ -15,15 +15,15 @@
             "scaleInDock": 5.5
         },
         "dungeon_tiles.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 4,
             "scaleInEditor": 4
         },
         "tilemap.tmx": {
             "scale": 2,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 201,
-                "y": 178.5
+                "x": 200.5,
+                "y": 178
             }
         }
     },

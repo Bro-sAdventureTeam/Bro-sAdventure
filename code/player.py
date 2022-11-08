@@ -1,5 +1,6 @@
 import pygame
 from settings import PLAYER_MULTIPLIER
+from support import import_folder
 
 class Player(pygame.sprite.Sprite):
     def __init__(self,pos,groups,obstacle_sprites):
@@ -18,6 +19,19 @@ class Player(pygame.sprite.Sprite):
         self.direction = pygame.math.Vector2()
         self.speed = 4
         self.obstacle_sprites = obstacle_sprites
+
+        self.import_player_assets()
+        print(self.animations)
+
+    def import_player_assets(self):
+        path = '../graphics/player/'
+        self.animations = {'up': [],'down': [],'left': [],'right': [],
+                           'up_idle': [],'down_idle': [],'left_idle': [],'right_idle': [],
+                           'up_attack': [],'down_attack': [],'left_attack': [],'right_attack': [],
+                           'down_sleep': []
+                           }
+        for animation_key, animation_val in self.animations.items():
+            self.animations[animation_key] = import_folder(f'{path}{animation_key}/')
 
     def input(self):
         keys = pygame.key.get_pressed()
