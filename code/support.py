@@ -15,7 +15,6 @@ def import_folder(path):
     for _,__,images in walk(path):
         images_sorted = natsorted(images, key=lambda y: y.lower())
         for image in images_sorted:
-            print('images_sorted:', images_sorted)
             full_path = path + image
             animation_set.append(pygame.image.load(full_path).convert_alpha())
 

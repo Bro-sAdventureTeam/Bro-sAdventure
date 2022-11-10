@@ -3,6 +3,7 @@ from settings import TILESIZE
 from support import import_csv_layout
 from player import Player
 from tile import Tile
+from ui import UI
 
 class Level:
     def __init__(self):
@@ -16,6 +17,8 @@ class Level:
 
         # create map
         self.create_map()
+
+        self.ui = UI()
 
     def create_map(self):
         layouts = {
@@ -68,6 +71,7 @@ class Level:
     def run(self):
         self.visible_sprites.custom_draw(self.player)
         self.visible_sprites.update()
+        self.ui.display(self.player)
 
 
 class YSortCameraGroup(pygame.sprite.Group):
