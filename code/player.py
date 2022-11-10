@@ -21,21 +21,19 @@ class Player(pygame.sprite.Sprite):
 
         # animation
         self.frame_index = 0
-        self.animation_speed = 0.08
+        self.animation_speed = 0.11
 
         # movement
         self.direction = pygame.math.Vector2()
         self.speed = 2
         self.obstacle_sprites = obstacle_sprites
 
-        self.import_player_assets()
-
     def import_player_assets(self):
         path = '../graphics/player/'
         self.animations = {'up': [],'down': [],'left': [],'right': [],
                            'up_idle': [],'down_idle': [],'left_idle': [],'right_idle': [],
                            'up_attack': [],'down_attack': [],'left_attack': [],'right_attack': [],
-                           'down_sleep': []
+                           'up_sleep': [],'down_sleep': [],'left_sleep': [],'right_sleep': []
                            }
         for animation_key, animation_val in self.animations.items():
             animations = import_folder(f'{path}{animation_key}/')

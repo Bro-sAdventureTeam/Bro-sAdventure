@@ -1,5 +1,6 @@
 from csv import reader
 from os import walk
+from natsort import natsorted, ns
 import pygame
 
 def import_csv_layout(path):  # give path, return list of lists
@@ -11,9 +12,11 @@ def import_csv_layout(path):  # give path, return list of lists
 
 def import_folder(path):
     animation_set = []
-    for dir in walk(path):
-        for picture in dir[2]:
-            full_path = dir[0] + picture
+    for _,__,images in walk(path):
+        images_sorted = natsorted(images, key=lambda y: y.lower())
+        for image in images_sorted:
+            print('images_sorted:', images_sorted)
+            full_path = path + image
             animation_set.append(pygame.image.load(full_path).convert_alpha())
 
     return animation_set
