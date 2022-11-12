@@ -18,30 +18,43 @@
             "scaleInDock": 4,
             "scaleInEditor": 4
         },
+        "ground_2": {
+            "scale": 0.6429,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 993.9337377508165,
+                "y": 1063.1513454658577
+            }
+        },
+        "ground_2.tsx": {
+            "scaleInEditor": 0.249
+        },
         "tilemap.tmx": {
             "scale": 2,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 200.5,
-                "y": 178
+                "x": 300.5,
+                "y": 227.75
             }
         }
     },
-    "last.exportedFilePath": "/home/prx/Tech/Projects/Game with Andrew \"Bro's Adventure\"/project/draft/map",
-    "last.imagePath": "/home/prx/Tech/Projects/Game with Andrew \"Bro's Adventure\"/project/graphics/draft/tilemap",
+    "last.exportedFilePath": "/home/prx/Tech/Projects/Game with Andrew Bro's Adventure/project/map",
+    "last.imagePath": "/home/prx/Tech/Projects/Game with Andrew Bro's Adventure/project/data/tilemap",
     "map.fixedSize": true,
-    "map.height": 88,
+    "map.height": 135,
     "map.lastUsedExportFilter": "CSV files (*.csv)",
     "map.lastUsedFormat": "tmx",
-    "map.tileHeight": 4,
-    "map.tileWidth": 4,
-    "map.width": 95,
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 135,
     "openFiles": [
         "tilemap.tmx",
         "dungeon_tiles.tsx"
     ],
     "project": "untitled.tiled-project",
     "recentFiles": [
+        "ground_2",
+        "ground_2.tsx",
         "dungeon_tiles.tsx",
         "tilemap.tmx"
     ],

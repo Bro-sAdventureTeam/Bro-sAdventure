@@ -80,6 +80,7 @@ class Player(pygame.sprite.Sprite):
         self.hitbox.x += self.direction.x * self.speed
         self.collision('horizontal')
         self.rect.center = self.hitbox.center
+        print('#j8j:',self.rect.center)
 
     def collision(self,direction):
         if direction == 'vertical':

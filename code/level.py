@@ -41,28 +41,30 @@ class Level:
                     x = col_index * TILESIZE
                     y = row_index * TILESIZE
                     if layout_key == 'boundary':
+                        x = col_index * 4
+                        y = row_index * 4
                         if col == '0':
-                            Tile((x,y),[self.obstacle_sprites])
+                            Tile((x,y),[self.obstacle_sprites],surf=pygame.Surface((4,4)))
+                    #
+                    # if layout_key == 'objects':
+                    #     if col == '2713':
+                    #         Tile((x,y),
+                    #              [self.obstacle_sprites, self.visible_sprites],
+                    #              objects['box_small'])
+                    #     elif col == '2432':
+                    #         Tile((x,y),
+                    #              [self.obstacle_sprites,self.visible_sprites],
+                    #              objects['box_big'])
+                    #     elif col == '2533':
+                    #         Tile((x,y),
+                    #              [self.obstacle_sprites,self.visible_sprites],
+                    #              objects['barrel'])
+                    #     elif col == '2992':
+                    #         Tile((x,y),
+                    #              [self.obstacle_sprites,self.visible_sprites],
+                    #              objects['torch'])
 
-                    if layout_key == 'objects':
-                        if col == '2713':
-                            Tile((x,y),
-                                 [self.obstacle_sprites, self.visible_sprites],
-                                 objects['box_small'])
-                        elif col == '2432':
-                            Tile((x,y),
-                                 [self.obstacle_sprites,self.visible_sprites],
-                                 objects['box_big'])
-                        elif col == '2533':
-                            Tile((x,y),
-                                 [self.obstacle_sprites,self.visible_sprites],
-                                 objects['barrel'])
-                        elif col == '2992':
-                            Tile((x,y),
-                                 [self.obstacle_sprites,self.visible_sprites],
-                                 objects['torch'])
-
-                    elif layout_key == 'entities':
+                    if layout_key == 'entities':
                         if col == '3721':
                             self.player = Player((x,y),
                                                  [self.visible_sprites],
@@ -85,7 +87,7 @@ class YSortCameraGroup(pygame.sprite.Group):
         self.offset = pygame.math.Vector2()
 
         # creating the floor
-        self.floor_surf = pygame.image.load('../graphics/tilemap/ground.png').convert()
+        self.floor_surf = pygame.image.load('../graphics/tilemap/ground_2.png').convert()
         self.floor_rect = self.floor_surf.get_rect(topleft = (0,0))
 
     def custom_draw(self,player):
