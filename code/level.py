@@ -24,15 +24,13 @@ class Level:
         layouts = {
             'boundary': import_csv_layout('../map/map_FloorBlocks.csv'),
             'floor': import_csv_layout('../map/map_Floor.csv'),
-            'objects': import_csv_layout('../map/map_Objects.csv'),
-            'entities': import_csv_layout('../map/map_Entities.csv')
+            'objects': import_csv_layout('../map/map_Objects.csv')
         }
 
         objects = {
-            'box_big': pygame.image.load('../graphics/obstacle/01.png').convert_alpha(),
-            'box_small': pygame.image.load('../graphics/obstacle/02.png').convert_alpha(),
-            'barrel': pygame.image.load('../graphics/obstacle/03.png').convert_alpha(),
-            'torch': pygame.image.load('../graphics/obstacle/04.png').convert_alpha()
+            'acquaintance': pygame.image.load('../graphics/objects/acquaintance/acquaintance_1.png').convert_alpha(),
+            'mushroom': pygame.image.load('../graphics/objects/mushroom.png').convert_alpha(),
+            'potion': pygame.image.load('../graphics/objects/potion.png').convert_alpha(),
         }
 
         for layout_key, layout_value in layouts.items():
@@ -41,16 +39,30 @@ class Level:
                     x = col_index * TILESIZE
                     y = row_index * TILESIZE
                     if layout_key == 'boundary':
-                        x = col_index * 4
-                        y = row_index * 4
+                        x = col_index * TILESIZE
+                        y = row_index * TILESIZE
                         if col == '0':
                             Tile((x,y),[self.obstacle_sprites],surf=pygame.Surface((4,4)))
 
-                    if layout_key == 'entities':
-                        if col == '3721':
+                    if layout_key == 'objects':
+                        if col == '1':  # Acquaintance
+                            Tile((x,y),
+                                 [self.visible_sprites,self.obstacle_sprites],
+                                 objects['acquaintance'])
+                        elif col == '2':  # Mushroom
+                            Tile((x, y),
+                                 [self.visible_sprites],
+                                 objects['mushroom'])
+                        elif col == '3':  # Potion
+                            Tile((x, y),
+                                 [self.visible_sprites,self.obstacle_sprites],
+                                 objects['potion'])
+                            print('potion:',x,y)
+                        elif col == '4':  # Player
                             self.player = Player((x,y),
                                                  [self.visible_sprites],
                                                  self.obstacle_sprites)
+                            print('player:',x,y)
 
     def run(self):
         self.visible_sprites.custom_draw(self.player)
