@@ -12,7 +12,7 @@ class UI:
         height = self.inventory_box_image.get_height() * 2
         width = self.inventory_box_image.get_width() * 2
         image_scaled = pygame.transform.scale(self.inventory_box_image,(height,width))
-        rect = image_scaled.get_rect(topleft = (pos))
+        rect = image_scaled.get_rect(topleft = pos)
 
         self.display_surf.blit(image_scaled,rect)
 

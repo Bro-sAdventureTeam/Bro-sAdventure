@@ -25,7 +25,7 @@ class Player(pygame.sprite.Sprite):
 
         # movement
         self.direction = pygame.math.Vector2()
-        self.speed = int(2)  # if put a float, then movement speed will be different
+        self.speed = 3 # int(2)  # if put a float, then movement speed will be different
         self.obstacle_sprites = obstacle_sprites
 
     def import_player_assets(self):
@@ -80,7 +80,6 @@ class Player(pygame.sprite.Sprite):
         self.hitbox.x += self.direction.x * self.speed
         self.collision('horizontal')
         self.rect.center = self.hitbox.center
-        print('#j8j:',self.rect.center)
 
     def collision(self,direction):
         if direction == 'vertical':

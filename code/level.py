@@ -45,24 +45,6 @@ class Level:
                         y = row_index * 4
                         if col == '0':
                             Tile((x,y),[self.obstacle_sprites],surf=pygame.Surface((4,4)))
-                    #
-                    # if layout_key == 'objects':
-                    #     if col == '2713':
-                    #         Tile((x,y),
-                    #              [self.obstacle_sprites, self.visible_sprites],
-                    #              objects['box_small'])
-                    #     elif col == '2432':
-                    #         Tile((x,y),
-                    #              [self.obstacle_sprites,self.visible_sprites],
-                    #              objects['box_big'])
-                    #     elif col == '2533':
-                    #         Tile((x,y),
-                    #              [self.obstacle_sprites,self.visible_sprites],
-                    #              objects['barrel'])
-                    #     elif col == '2992':
-                    #         Tile((x,y),
-                    #              [self.obstacle_sprites,self.visible_sprites],
-                    #              objects['torch'])
 
                     if layout_key == 'entities':
                         if col == '3721':
